@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 
 //Example 1: Hello World 
 const heading = React.createElement(
@@ -43,5 +46,5 @@ const parent= React.createElement(
 const root = ReactDOM.createRoot(document.getElementById("root"));
         
 
-root.render(heading); 
+// root.render(heading); git 
 root.render(parent); 
