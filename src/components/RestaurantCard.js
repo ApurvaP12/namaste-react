@@ -9,10 +9,10 @@ import { CDN_URL } from "../utils/constants.js";
 // const  {resName, cuisine} = props;
 
 const RestaurantCard = (props) => {
-    console.log(props);
+    // console.log(props);
     //Destructuring props
     const { resData} = props;
-    const{cloudinaryImageId, name, cuisines, avgRating, costForTwo } = resData?.data;
+    const{cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info;
 
     return (
         <div className="card-wrapper">
@@ -21,11 +21,10 @@ const RestaurantCard = (props) => {
             </div>
             <div className="card-data-wrapper">
                 <div className="name">{name}</div>
-                    <div className="rating">{avgRating} stars</div>
-                    <div className="rating">{costForTwo}</div>
-               
+                <div className="rating">{avgRating} stars</div>
+                <div className="rating">{costForTwo}</div>
+                <div className="time">{sla?.slaString}</div>
                 <div className="details">{cuisines.join(", ")}</div>
-                <div className="time">{resData.data.sla.deliveryTime} mins</div>
             </div>
         </div>
     )

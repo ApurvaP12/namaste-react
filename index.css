@@ -23,6 +23,13 @@ body {
     box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
     transition: transform .3s ease, -webkit-transform .3s ease;
 }
+.header-left-area {
+
+}
+.header-right-area {
+    display: flex;
+    align-items: center;
+}
 .logo-wrapper {
     width: 90px;
     height: 100%;
@@ -39,6 +46,15 @@ body {
 .navlinks-wrapper > ul > li{
     margin: 5px 10px;
     font-size: 20px;
+    cursor: pointer;
+}
+.login-container {
+    margin: 0px 10px;
+}
+.login-btn {
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -79,12 +95,17 @@ body {
     width: 100%;
     height: 40px;
     border-radius: 4px;
-
+    padding: 0px 10px;
 }
+.button-wrapper {
+    margin: 0px 20px;
+}
+
 .button-wrapper > button {
     width: 100px;
     height: 40px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .card-container {
@@ -141,4 +162,6 @@ body {
     font-size: 10px;
     font-weight: 400;
     color: rgba(2, 6, 12, 0.92);
+    margin-bottom: 5px;
 }
+

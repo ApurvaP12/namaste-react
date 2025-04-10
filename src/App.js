@@ -1,4 +1,4 @@
-import React, { Component, createElement } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import Header from "../src/components/Header";
 import Body from "../src/components/Body";
