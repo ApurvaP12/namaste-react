@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { resList } from "../utils/mockData.js";
+import Shimmer from './common/Shimmer.js'
 
 
 const Body = () => {
@@ -54,7 +55,7 @@ const Body = () => {
                 <div className="filter-container">
                     <button className="filter-btn" onClick={()=>{
                         const filteredList = listOfRestaurants.filter(
-                            (res)=> res.data.avgRating > 4.5
+                            (res)=> res.info.avgRating > 4.5
                         )
                         setListOfRestaurants(filteredList); //Trigger for Diff algorithm 
                     }}>⭐Top Rated Restaurants</button>
@@ -62,21 +63,25 @@ const Body = () => {
             </div>
             
             {/* Restaurant Card Layout */}
-            <div className="card-container">
-                {
-                    filteredRestaurants.map(restaurant => <RestaurantCard key={restaurant.info.id} resData={restaurant}/>)
-                }
+            {
+                listOfRestaurants.length === 0 ? <Shimmer/>
+                :
+                <div className="card-container">
+                    {
+                        filteredRestaurants.map(restaurant => <RestaurantCard key={restaurant.info.id} resData={restaurant}/>)
+                    }
 
-                {/* Props to component */}
-                {/* <Card resName="Deep's Kitchen" cuisine="Asian, Indian, Chinese"/>
-                <Card resName="Mc'Donalds" cuisine="Burgers, Fries, Fast Food"/> */}
+                    {/* Props to component */}
+                    {/* <Card resName="Deep's Kitchen" cuisine="Asian, Indian, Chinese"/>
+                    <Card resName="Mc'Donalds" cuisine="Burgers, Fries, Fast Food"/> */}
 
-                {/* With Array of Object list */}
-                {/* <Card resData={resList [0]} />
-                <Card resData={resList [1]} />
-                <Card resData={resList [2]} /> */}
-                
-            </div>
+                    {/* With Array of Object list */}
+                    {/* <Card resData={resList [0]} />
+                    <Card resData={resList [1]} />
+                    <Card resData={resList [2]} /> */}
+                    
+                </div>
+            }   
         </div>
     )
 }
