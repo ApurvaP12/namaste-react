@@ -1,7 +1,7 @@
 const About = () => {
     return(
-        <div className="app-layout-container">
-            <h1>About Page</h1>
+        <div className="about-page-container" style={{textAlign:"center"}}>
+            <h1>⚒️ Builing: About Page 🛠️ </h1>
         </div>
     )
 }
