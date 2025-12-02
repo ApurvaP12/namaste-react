@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 body {
     padding: 0px;
     margin: 0px;
@@ -70,6 +72,7 @@ a {
 .top-area {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 .filter-container {
 
@@ -89,7 +92,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+  
 }
 .input-wrapper {
     width: 400px;
@@ -199,4 +202,13 @@ a {
     height: 10px;
     background-color: #e2e2e2;
     margin-bottom: 5px;
+}
+
+.user-card {
+    width: 22.5%;
+    padding: 10px;
+    border: 0px solid white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 16px;
+    margin: 20px;
 }

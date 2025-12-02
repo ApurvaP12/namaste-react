@@ -49,3 +49,8 @@ import {Component/ CONST_NAME} from "path";
 - Footer- Add footer with basic copyright text and few links
 
 
+# 2 types of Routing in React 
+- Client side routing
+- Server side routing
+
+

@@ -30,4 +30,35 @@ const RestaurantCard = (props) => {
     )
 }
 
+// Example- Higher Order Function (component)
+
+//Not using-  Swiggy API
+// export const withDiscoutLabel= (RestaurantCard)=> {
+//     return (props)=> {
+//         const { resData} = props;
+//         const{aggregatedDiscountInfoV3} = resData?.info;
+//         return (
+//             <>
+//              <div className="absolute bg-amber-50">{aggregatedDiscountInfoV3?.discountTag} {aggregatedDiscountInfoV3?.header}</div>
+//              <RestaurantCard {...props}/>
+//             </>
+
+//         )
+//     }
+// }
+
+export const withVegLabel= (RestaurantCard)=> {
+    //Functional component
+return (props) => {
+    const { resData} = props;
+    // const{ veg }=resData?.info
+    return  (
+        <div>
+            <label className=" absolute text-amber-50 bg-emerald-700 text-bold rounded-lg  p-1 pl-6 pr-6 ">Veg</label>
+            <RestaurantCard {...props}/>
+        </div>
+    )
+}
+}
+
 export default RestaurantCard;
