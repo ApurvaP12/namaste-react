@@ -3,6 +3,7 @@ import Shimmer from "./common/Shimmer";
 import { useParams, useNavigate } from "react-router";
 // import { RES_MENU_URL } from "../utils/constants";
 import useRestaurantInfoDetails from "../utils/useRestaurantInfoDetails";
+import RestaurantCategory from './RestaurantCategory';
 
 
 const RestaurantCardDetails = () => {
@@ -39,18 +40,32 @@ const RestaurantCardDetails = () => {
 
     const {itemCards}= resInfo?.cards[4]?.groupedCard.cardGroupMap.REGULAR?.cards[1]?.card?.card;
 
+    // console.log("resInfo?.cards", resInfo?.cards[4]?.groupedCard.cardGroupMap.REGULAR?.cards);
+    // console.log("itemsCards",itemCards);
 
-    console.log("itemsCards",itemCards);
+    const categories = resInfo?.cards[4]?.groupedCard.cardGroupMap.REGULAR?.cards.filter(
+        (c)=> c.card?.card?.["@type"] 
+        
+    );
+
+    console.log("categories",categories);
 
 
     return(
-        <div className="about-page-container" style={{width: "45%", margin: "0 auto" }}>
-            <p style={{cursor: 'pointer'}}  onClick={() => { navigate(-1);}}>⬅️	&larr;</p>
-            <h2 className="font-bold text-lg">{name}</h2>
-            <h5>{locality}</h5>
-            <h5>⭐{avgRating} &nbsp; {costForTwoMessage}</h5>
-            <h5>{cuisines.join(", " )}</h5>
-            <h4>Recommended </h4>
+        <div className="restaurant-details-page-container" style={{width: "40%", margin: "0 auto" }}>
+            <div className="flex align-baseline">
+                <div className="cursor-pointer mr-3"  onClick={() => { navigate(-1);}}>⬅️	</div> 
+                    {/* &larr; */}
+                <h2 className="text-center font-bold text-lg mb-3">{name}</h2>
+            </div>
+            
+            <div className="card-wrapper p-3">
+                <h5>{locality}</h5>
+                <h5>⭐{avgRating} &nbsp; {costForTwoMessage}</h5>
+                <h5>{cuisines.join(", " )}</h5>
+            </div>
+            
+            {/* <h4>Recommended </h4>
             <ol>
                 {
                     itemCards.map(item=> 
@@ -59,7 +74,16 @@ const RestaurantCardDetails = () => {
                     </li>
                     )
                 }
-            </ol>
+            </ol> */}
+
+            {/* Accordion for Restaurant category and its Items */}
+            {/* <RestaurantCategory /> */}
+            <div>
+               {
+                categories.map((category) => <RestaurantCategory data={ category?.card?.card}/> )
+               }
+            </div>
+
         </div>
     )
 }
