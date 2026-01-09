@@ -53,4 +53,14 @@ import {Component/ CONST_NAME} from "path";
 - Client side routing
 - Server side routing
 
+# Redux Toolkit 
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect store to our application
+- Slice (cartSlice)
+- Dispatch Action
+- Selector
+
+
+
 

@@ -4,11 +4,18 @@ import { useState } from "react";
 import { Link } from "react-router";
 import AppLogo from  "../../Images/app-logo.png";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
     const [loginBtnText, setLoginBtnText] = useState("Login");
     const onlineStatus = useOnlineStatus();
+
+    //Subscribing the store using a Selector
+    // Using this hook useSlector - we can acces to our store
+
+    const cartItems = useSelector((store)=> store.cart.items);
+    console.log("cartItems",cartItems)
 
     return(
         <div className="header-container">
@@ -25,7 +32,7 @@ const Header = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About US</Link></li>
                         <li><Link to="/contact">Contact US</Link></li>
-                        <li>Cart</li>
+                        <li className="font-bold"><Link to="/cart">Cart- ({cartItems.length} items)</Link></li>
                     </ul>
                 </div>
                 <div className="login-container">
