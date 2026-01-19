@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import { createBrowserRouter,RouterProvider, Outlet } from "react-router";
 import Header from "../src/components/Header";
@@ -10,6 +10,20 @@ import Error  from "./components/common/Error";
 import Cart from "./components/Cart";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+// import Grocery from "./components/Grocery";
+
+//Grocery component is example for below
+// Chunking- to breakdown your app in smaller chunks
+// Dynamic bundling
+// Code Spliting
+// On demand loading
+// Dynamic import - 
+// Lazy loading- At initial rendering "Grocery" component will not load, it will load only when we navigate to that component
+
+// lazy() comes from react library as named import
+
+const Grocery = lazy(()=> import("./components/Grocery"))
+
 
 const AppLayout = () => {
     return(
@@ -47,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: '/restaurant/:resId',
                 element:<RestaurantCardDetails/>
+            },
+            {
+                path: '/grocery',
+                element:<Suspense fallback={<p>Loading...</p>}><Grocery/></Suspense>
             }
         ],
         errorElement: <Error/>

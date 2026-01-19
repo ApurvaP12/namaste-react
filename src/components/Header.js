@@ -1,10 +1,11 @@
 
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router";
 import AppLogo from  "../../Images/app-logo.png";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import { useSelector } from "react-redux";
+import UserContext from "../utils/userContext.js";
 
 
 const Header = () => {
@@ -16,6 +17,11 @@ const Header = () => {
 
     const cartItems = useSelector((store)=> store.cart.items);
     console.log("cartItems",cartItems)
+
+    // Context example
+
+    const {loggedInUser} = useContext(UserContext);
+    console.log("UserContext",loggedInUser);
 
     return(
         <div className="header-container">
@@ -32,7 +38,8 @@ const Header = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About US</Link></li>
                         <li><Link to="/contact">Contact US</Link></li>
-                        <li className="font-bold"><Link to="/cart">Cart- ({cartItems.length} items)</Link></li>
+                        <li><Link to="/grocery">Grocery</Link></li>
+                        <li><Link to="/cart">Cart- ({cartItems.length} items)</Link></li>
                     </ul>
                 </div>
                 <div className="login-container">
@@ -40,6 +47,7 @@ const Header = () => {
                             loginBtnText === "Login" ? setLoginBtnText("Logout") : setLoginBtnText("Login")
                         }}>{loginBtnText}</button>
                 </div>
+                <div className="user-name font-bold">{loggedInUser}</div>
             </div>
         </div>
     )
