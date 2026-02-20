@@ -42,12 +42,13 @@ const Header = () => {
                         <li><Link to="/cart">Cart- ({cartItems.length} items)</Link></li>
                     </ul>
                 </div>
+                <div className="user-name font-bold">{loggedInUser}</div>
                 <div className="login-container">
-                        <button className="login-btn" onClick={()=> {
+                        <button className="login-btn p-1 border-2 bg-gray-100 rounded-lg cursor-pointer" onClick={()=> {
                             loginBtnText === "Login" ? setLoginBtnText("Logout") : setLoginBtnText("Login")
                         }}>{loginBtnText}</button>
                 </div>
-                <div className="user-name font-bold">{loggedInUser}</div>
+                
             </div>
         </div>
     )

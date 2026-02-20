@@ -147,6 +147,17 @@ const config = {
   // The test environment that will be used for testing
   testEnvironment: "jsdom",
 
+  //Note: This line is for - Textencoder polyfill
+   setupFilesAfterEnv: [
+    // "@testing-library/jest-dom",
+    "<rootDir>/jest.setup.js"
+  ],
+
+  //Static asset mocking
+    moduleNameMapper: {
+    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+  }
+
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
 
