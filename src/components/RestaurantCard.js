@@ -13,6 +13,7 @@ const RestaurantCard = (props) => {
     //Destructuring props
     const { resData} = props;
     const{cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info;
+    console.log("resData", resData);
 
     return (
         <div className="card-wrapper">
@@ -46,6 +47,8 @@ const RestaurantCard = (props) => {
 //         )
 //     }
 // }
+
+// Example- Higher Order Function (component)
 
 export const withVegLabel= (RestaurantCard)=> {
     //Functional component

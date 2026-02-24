@@ -81,6 +81,9 @@ import {Component/ CONST_NAME} from "path";
 - Install > @babel/preset-react - to make JSX work in test cases
 - Include > @babel/preset-react inside babel config file this line-> ['@babel/preset-react', {runtime: "automatic"}]
 - Install > npm i -D @testing-library/jest-dom 
+- To understand JEST config TextEncoder and Image
+- Added __mock__ folder as well as jest setup file 
+- Configure both in jest.config.js at- setupFilesAfterEnv and moduleNameMapper
 
 
 
