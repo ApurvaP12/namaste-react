@@ -65,7 +65,7 @@ const Body = () => {
                 {/* Search Area */}
                 <div className="search-container">
                     <div className="input-wrapper">
-                        <input type="text" placeholder="Search.." className="focus: ring-2" value={searchText} onChange={(event)=>{
+                        <input data-testid="searchInput" type="text" placeholder="Search.." className="focus: ring-2" value={searchText} onChange={(event)=>{
                             setSearchText(event.target.value);
                         }}/>
                     </div>

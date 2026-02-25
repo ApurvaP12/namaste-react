@@ -16,7 +16,7 @@ const RestaurantCard = (props) => {
     console.log("resData", resData);
 
     return (
-        <div className="card-wrapper">
+        <div data-testid="resCard" className="card-wrapper">
             <div className="card-image-wrapper">
                 <img alt="restaurant-img" src={CDN_URL + cloudinaryImageId}/>
             </div>
