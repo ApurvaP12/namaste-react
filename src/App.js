@@ -28,6 +28,7 @@ const Grocery = lazy(()=> import("./components/Grocery"))
 const AppLayout = () => {
     return(
         //Redux provider to our whole app
+        //Outlet- to load children
         <Provider store={appStore}>
             <div className="app-layout-container">
                 <Header/>

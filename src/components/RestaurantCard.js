@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
     //Destructuring props
     const { resData} = props;
     const{cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } = resData?.info;
-    console.log("resData", resData);
+    // console.log("resData", resData);
 
     return (
         <div data-testid="resCard" className="card-wrapper">

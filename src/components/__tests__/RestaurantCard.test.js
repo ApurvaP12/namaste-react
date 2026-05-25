@@ -11,7 +11,7 @@ it("Should load Restarant Card component with props data", () =>{
     //Restaurant card need data via props so, created MOCK_DATA for such cases
     render(<RestaurantCard resData={MOCK_DATA}/>);
 
-    console.log("MOCK_DATA", MOCK_DATA);
+    // console.log("MOCK_DATA", MOCK_DATA);
 
     const name = screen.getByText("Pizza Paradise");
 

@@ -7,6 +7,20 @@ import "@testing-library/jest-dom";
 //Also, we can have describe inside describe (nesting)
 describe("Contact Us Page test cases",()=> {
 
+    //Helper Functions
+    beforeAll(()=>{
+        console.log("Before All");
+    });
+    beforeEach(()=>{
+        console.log("Before Each");
+    });
+    afterAll(()=>{
+        console.log("After All");
+    });
+    afterEach(()=>{
+        console.log("After Each");
+    })
+
     //All grouped test cases
     //test() or it()- alias/ naming convention
     //But use only one for best practices

@@ -55,21 +55,11 @@ it("Should render Body component with Search placeholder text", async () => {
 //   );
 
 //     const cardsBeforeSearch =  await screen.getAllByTestId("resCard");
-//     expect(cardsBeforeSearch.length).toBe(10);
-
-//     // const searchBtn =  screen.getByRole("button", {name: "Search"});
-
-//     // const searchInput =  screen.getByTestId("searchInput");
-
-//     // fireEvent.change(searchInput, {target: {value: "pizza"}});
-//     // fireEvent.click(searchBtn);
-
-//     // const cardsAfterSearch =  screen.getAllByTestId("resCard");
-//     // expect(cardsAfterSearch.length).toBe(1);
-    
+//     expect(cardsBeforeSearch.length).toBe(10);    
 // });
 
-it("filters restaurant cards when user searches for Pizza", async () => {
+//Search feature
+it("Should load filters restaurant cards when user searches for Pizza", async () => {
   render(
     <BrowserRouter>
       <Body />
@@ -90,3 +80,22 @@ it("filters restaurant cards when user searches for Pizza", async () => {
   const cardsAfterSearch = await screen.findAllByTestId("resCard");
   expect(cardsAfterSearch.length).toBe(1);
 });
+
+//Top rated restaurant filter feature
+it("Should Filter Top Rated Restaurants after clicking on button-⭐Top Rated Restaurants",async ()=>{
+  render(
+    <BrowserRouter>
+      <Body/>
+    </BrowserRouter>
+  );
+
+  const cardsBeforeFilter = await screen.findAllByTestId("resCard");
+  expect(cardsBeforeFilter.length).toBe(9);
+
+  const topRatedBtn = screen.getByRole("button", {name: "⭐Top Rated Restaurants"});
+  fireEvent.click(topRatedBtn);
+
+  const cardsAfterFilter = await screen.getAllByTestId("resCard");
+  expect(cardsAfterFilter.length).toBe(3);
+  
+})

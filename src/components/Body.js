@@ -16,7 +16,7 @@ const Body = () => {
     //const RestaurantCardDiscount = withDiscoutLabel(RestaurantCard);
     const RestaurantCardVeg = withVegLabel(RestaurantCard);
 
-    console.log("Body render", listOfRestaurants);
+    // console.log("Body render", listOfRestaurants);
 
     // JS-Actualy it is array destructuring
     // const arr = useState(resList);
@@ -35,7 +35,7 @@ const Body = () => {
 
         const json = await data.json();
 
-        console.log("Dummy API Res", json?.data?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants)
+        // console.log("Dummy API Res", json?.data?.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         // console.log("Swiggy actual API response",json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
 
         //Swiggy Actual API
@@ -61,7 +61,7 @@ const Body = () => {
     return (
         <div className="body-container">
             <div className="top-area">
-                <div style={{width: "200px"}}>Total restaurants: <b>{listOfRestaurants.length}</b></div>
+                <div style={{width: "200px"}}>Total restaurants: <b>{filteredRestaurants.length}</b></div>
                 {/* Search Area */}
                 <div className="search-container">
                     <div className="input-wrapper">
@@ -71,7 +71,7 @@ const Body = () => {
                     </div>
                     <div className="button-wrapper">
                         <button className="bg-sky-500 hover:bg-sky-700 " onClick={()=>{
-                            console.log(searchText)
+                            // console.log(searchText);
                             const filteredResList = listOfRestaurants.filter((res)=> 
                                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
                             )
@@ -85,7 +85,7 @@ const Body = () => {
                         const filteredList = listOfRestaurants.filter(
                             (res)=> res.info.avgRating > 4.5
                         )
-                        setListOfRestaurants(filteredList); //Trigger for Diff algorithm 
+                        setFilteredRestaurants(filteredList); //Trigger for Diff algorithm 
                     }}>⭐Top Rated Restaurants</button>
                 </div>
             </div>
